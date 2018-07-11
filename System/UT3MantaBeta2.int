@@ -1,0 +1,10 @@
+[Mut_UT3Manta]
+GUIDisplayText="Allow carry"
+GUIDescText="Whether or not you're able to carry players on top of the manta."
+FriendlyName="UT3 Manta"
+Description="This mutator replaces the Manta with the one from UT3. (Has settings)"
+
+[UT3Manta]
+VehiclePositionString="in a UT3 Manta"
+VehicleNameString="UT3 Manta"
+
