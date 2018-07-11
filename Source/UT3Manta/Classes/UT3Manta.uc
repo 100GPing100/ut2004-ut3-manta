@@ -215,23 +215,23 @@ defaultproperties
 	AirControl = 1.5;
 	
 	// Sounds.
-	IdleSound = Sound'UT3MantaRC1.Sounds.Engine';
-	StartUpSound = Sound'UT3MantaRC1.Sounds.EngineStart';
-	ShutDownSound = Sound'UT3MantaRC1.Sounds.EngineStop';
-	JumpSound = Sound'UT3MantaRC1.Sounds.Jump';
-	DuckSound = Sound'UT3MantaRC1.Sounds.Duck';
-	ImpactDamageSounds(0) = Sound'UT3MantaRC1.Sounds.Impact01';
-	ImpactDamageSounds(1) = Sound'UT3MantaRC1.Sounds.Impact02';
-	ImpactDamageSounds(2) = Sound'UT3MantaRC1.Sounds.Impact01';
-	ImpactDamageSounds(3) = Sound'UT3MantaRC1.Sounds.Impact02';
-	ImpactDamageSounds(4) = Sound'UT3MantaRC1.Sounds.Impact01';
-	ImpactDamageSounds(5) = Sound'UT3MantaRC1.Sounds.Impact02';
-	ImpactDamageSounds(6) = Sound'UT3MantaRC1.Sounds.Impact01';
-	ExplosionSounds(0) = Sound'UT3MantaRC1.Sounds.Explode';
-	ExplosionSounds(1) = Sound'UT3MantaRC1.Sounds.Explode';
-	ExplosionSounds(2) = Sound'UT3MantaRC1.Sounds.Explode';
-	ExplosionSounds(3) = Sound'UT3MantaRC1.Sounds.Explode';
-	ExplosionSounds(4) = Sound'UT3MantaRC1.Sounds.Explode';
+	IdleSound = Sound'UT3Manta.Sounds.Engine';
+	StartUpSound = Sound'UT3Manta.Sounds.EngineStart';
+	ShutDownSound = Sound'UT3Manta.Sounds.EngineStop';
+	JumpSound = Sound'UT3Manta.Sounds.Jump';
+	DuckSound = Sound'UT3Manta.Sounds.Duck';
+	ImpactDamageSounds(0) = Sound'UT3Manta.Sounds.Impact01';
+	ImpactDamageSounds(1) = Sound'UT3Manta.Sounds.Impact02';
+	ImpactDamageSounds(2) = Sound'UT3Manta.Sounds.Impact01';
+	ImpactDamageSounds(3) = Sound'UT3Manta.Sounds.Impact02';
+	ImpactDamageSounds(4) = Sound'UT3Manta.Sounds.Impact01';
+	ImpactDamageSounds(5) = Sound'UT3Manta.Sounds.Impact02';
+	ImpactDamageSounds(6) = Sound'UT3Manta.Sounds.Impact01';
+	ExplosionSounds(0) = Sound'UT3Manta.Sounds.Explode';
+	ExplosionSounds(1) = Sound'UT3Manta.Sounds.Explode';
+	ExplosionSounds(2) = Sound'UT3Manta.Sounds.Explode';
+	ExplosionSounds(3) = Sound'UT3Manta.Sounds.Explode';
+	ExplosionSounds(4) = Sound'UT3Manta.Sounds.Explode';
 	// @100GPing100
 	//======END======
 	
@@ -244,7 +244,7 @@ defaultproperties
 	PitchTorqueMax=9.0  //18 is a bit too over the top  //13.5 as well
 	RollTorqueMax=25.0
 	/*DriverWeapons(0)=(WeaponClass=class'UT3MantaPlasmaGun',WeaponBone=PlasmaGunAttachment);
-	IdleSound=sound'UT3MantaRC1.Sounds.Engine';
+	IdleSound=sound'UT3Manta.Sounds.Engine';
     StartUpSound=sound'UT3Vehicles.Manta.MantaEnter'
     ShutDownSound=sound'UT3Vehicles.Manta.MantaLeave'
     JumpSound=sound'UT3Vehicles.Manta.MantaJump'
