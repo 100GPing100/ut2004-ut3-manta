@@ -1,0 +1,2 @@
+Mutator=(ClassName=UT3MantaBeta1.Mut_UT3Manta,GroupName=Manta,IconMaterialName=MutatorArt.nosym,FriendlyName=UT3MantaBeta1.Mut_UT3Manta.FriendlyName,Description=UT3MantaBeta1.Mut_UT3Manta.Description,FriendlyName=UT3MantaBeta1.Mut_UT3Manta.FriendlyName,FallbackName="UT3 Manta",FallbackDesc="This mutator replaces the Manta with the one from UT3.")
+Vehicle=(ClassName=UT3MantaBeta1.UT3Manta,FriendlyName=UT3MantaBeta1.UT3Manta.VehicleNameString,FallbackName="UT3 Manta",FallbackDesc="UT3 Manta")
