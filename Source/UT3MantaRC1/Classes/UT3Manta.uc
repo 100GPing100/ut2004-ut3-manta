@@ -4,6 +4,7 @@ UT3Manta
 Creation date: 2008-05-02 20:50
 Last change: $Id$
 Copyright (c) 2008, Wormbo and GreatEmerald
+Copyright (c) 2012, 100GPing100
 ******************************************************************************/
 
 class UT3Manta extends ONSHoverBike;
@@ -12,9 +13,11 @@ var Emitter DuckEffect;
 
 //===============
 // @100GPing100
+/* Load the packages. */
 #exec obj load file=..\Animations\UT3MantaAnims.ukx
 #exec obj load file=..\Textures\UT3MantaTex.utx
 
+/* Import all the sounds. */
 #exec audio import group=Sounds file=..\Sounds\UT3Manta\Engine.wav
 #exec audio import group=Sounds file=..\Sounds\UT3Manta\EngineStart.wav
 #exec audio import group=Sounds file=..\Sounds\UT3Manta\EngineStop.wav
@@ -26,15 +29,10 @@ var Emitter DuckEffect;
 
 /* The spining blades. */
 var array<UT3MantaBlade> Blades;
-/* The ailerons. */
-struct Aileron
-{
-	var name BoneName;
-};
-var Aileron RightAileron, LeftAileron;
-/*  */
-var float AileronsRPS;
 
+//
+// Spawn the blades.
+//
 function PostBeginPlay()
 {
 	Super.PostBeginPlay();
@@ -48,6 +46,9 @@ function PostBeginPlay()
 	ToggleBlades(false);
 }
 
+//
+// Update the state of the blades.
+//
 function DrivingStatusChanged()
 {
 	Super.DrivingStatusChanged();
@@ -60,12 +61,19 @@ function DrivingStatusChanged()
 		bCanBeBaseForPawns = false;
 }
 
+//
+// Called every game tick.
+//
 function Tick(float DeltaTime)
 {
-	Ailerons(DeltaTime);
-	EmeraldTick(DeltaTime);
+	if (Driver != None) // Just in case.
+		Ailerons(DeltaTime);
+	EmeraldTick(DeltaTime); // Renamed it.
 }
 
+//
+// Turn the blades On/Off.
+//
 function ToggleBlades(bool OnOff)
 {
 	if (OnOff) { // On.
@@ -77,6 +85,9 @@ function ToggleBlades(bool OnOff)
 	}
 }
 
+//
+// Animate the ailerons (code animated).
+//
 function Ailerons(float DeltaTime)
 {
 	// 45º = 8192 RUU
@@ -96,6 +107,9 @@ function Ailerons(float DeltaTime)
 	SetBoneRotation('Aileron_Lt', AileronsRotation, 0, 1);
 }
 
+//
+// On destruction, destroy the blades too.
+//
 function Destroyed()
 {
 	Blades[0].Destroy();
@@ -183,43 +197,41 @@ defaultproperties
 {
 	//===============
 	// @100GPing100
+	// Looks.
 	Mesh = SkeletalMesh'UT3MantaAnims.Manta';
 	RedSkin = Shader'UT3MantaTex.MantaSkin';
 	BlueSkin = Shader'UT3MantaTex.MantaSkinBlue';
-	
-	DriverWeapons(0)=(WeaponClass=class'UT3MantaPlasmaGun',WeaponBone=barrel_rt);
-	
-	VehiclePositionString = "in a UT3 Manta";
-	
-	MaxPitchSpeed = 2000;
-	
-	IdleSound = Sound'UT3MantaBeta2.Sounds.Engine';
-	StartUpSound = Sound'UT3MantaBeta2.Sounds.EngineStart';
-	ShutDownSound = Sound'UT3MantaBeta2.Sounds.EngineStop';
-	JumpSound = Sound'UT3MantaBeta2.Sounds.Jump';
-	DuckSound = Sound'UT3MantaBeta2.Sounds.Duck';
-	ImpactDamageSounds(0) = Sound'UT3MantaBeta2.Sounds.Impact01';
-	ImpactDamageSounds(1) = Sound'UT3MantaBeta2.Sounds.Impact02';
-	ImpactDamageSounds(2) = Sound'UT3MantaBeta2.Sounds.Impact01';
-	ImpactDamageSounds(3) = Sound'UT3MantaBeta2.Sounds.Impact02';
-	ImpactDamageSounds(4) = Sound'UT3MantaBeta2.Sounds.Impact01';
-	ImpactDamageSounds(5) = Sound'UT3MantaBeta2.Sounds.Impact02';
-	ImpactDamageSounds(6) = Sound'UT3MantaBeta2.Sounds.Impact01';
-	ExplosionSounds(0) = Sound'UT3MantaBeta2.Sounds.Explode';
-	ExplosionSounds(1) = Sound'UT3MantaBeta2.Sounds.Explode';
-	ExplosionSounds(2) = Sound'UT3MantaBeta2.Sounds.Explode';
-	ExplosionSounds(3) = Sound'UT3MantaBeta2.Sounds.Explode';
-	ExplosionSounds(4) = Sound'UT3MantaBeta2.Sounds.Explode';
-	
-	AirControl = 1.5;
-	
-	RightAileron = Aileron(BoneName='Aileron_Rt')
-	LeftAileron = Aileron(BoneName='Aileron_Lt')
-	AileronsRPS = 0.75;
-	
 	DrivePos = (X=-70,Y=0.0,Z=55.0);
 	
-	HoverCheckDist = 165;
+	// Damage.
+	DriverWeapons(0)=(WeaponClass=class'UT3MantaPlasmaGun',WeaponBone=barrel_rt);
+	
+	// Strings.
+	VehiclePositionString = "in a UT3 Manta";
+	
+	// Movement.
+	MaxPitchSpeed = 2000;
+	HoverCheckDist = 155;
+	AirControl = 1.5;
+	
+	// Sounds.
+	IdleSound = Sound'UT3MantaRC1.Sounds.Engine';
+	StartUpSound = Sound'UT3MantaRC1.Sounds.EngineStart';
+	ShutDownSound = Sound'UT3MantaRC1.Sounds.EngineStop';
+	JumpSound = Sound'UT3MantaRC1.Sounds.Jump';
+	DuckSound = Sound'UT3MantaRC1.Sounds.Duck';
+	ImpactDamageSounds(0) = Sound'UT3MantaRC1.Sounds.Impact01';
+	ImpactDamageSounds(1) = Sound'UT3MantaRC1.Sounds.Impact02';
+	ImpactDamageSounds(2) = Sound'UT3MantaRC1.Sounds.Impact01';
+	ImpactDamageSounds(3) = Sound'UT3MantaRC1.Sounds.Impact02';
+	ImpactDamageSounds(4) = Sound'UT3MantaRC1.Sounds.Impact01';
+	ImpactDamageSounds(5) = Sound'UT3MantaRC1.Sounds.Impact02';
+	ImpactDamageSounds(6) = Sound'UT3MantaRC1.Sounds.Impact01';
+	ExplosionSounds(0) = Sound'UT3MantaRC1.Sounds.Explode';
+	ExplosionSounds(1) = Sound'UT3MantaRC1.Sounds.Explode';
+	ExplosionSounds(2) = Sound'UT3MantaRC1.Sounds.Explode';
+	ExplosionSounds(3) = Sound'UT3MantaRC1.Sounds.Explode';
+	ExplosionSounds(4) = Sound'UT3MantaRC1.Sounds.Explode';
 	// @100GPing100
 	//======END======
 	
@@ -232,7 +244,7 @@ defaultproperties
 	PitchTorqueMax=9.0  //18 is a bit too over the top  //13.5 as well
 	RollTorqueMax=25.0
 	/*DriverWeapons(0)=(WeaponClass=class'UT3MantaPlasmaGun',WeaponBone=PlasmaGunAttachment);
-	IdleSound=sound'UT3MantaBeta2.Sounds.Engine';
+	IdleSound=sound'UT3MantaRC1.Sounds.Engine';
     StartUpSound=sound'UT3Vehicles.Manta.MantaEnter'
     ShutDownSound=sound'UT3Vehicles.Manta.MantaLeave'
     JumpSound=sound'UT3Vehicles.Manta.MantaJump'

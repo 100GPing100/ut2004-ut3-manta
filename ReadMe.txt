@@ -1,4 +1,4 @@
-Unreal Tournament III Manta imported to Unreal Tournament 2004, beta 2.
+Unreal Tournament III Manta imported to Unreal Tournament 2004, Release Candidate 1.
 
 _Copyright:_
 » Ze Luis '100GPing100' (Some code and visuals).

@@ -13,6 +13,7 @@ var Material BladesOffTex;
 
 DefaultProperties
 {
+	// Looks.
 	StaticMesh = StaticMesh'UT3MantaSM.Blades';
 	Skins(0) = TexRotator'UT3MantaTex.BladesOn';
 	DrawType = DT_StaticMesh;

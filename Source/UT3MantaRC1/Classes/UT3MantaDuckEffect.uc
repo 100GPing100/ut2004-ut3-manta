@@ -23,7 +23,8 @@ DefaultProperties
         Opacity=0.500000
         CoordinateSystem=PTCS_Relative
         MaxParticles=2
-        StartLocationOffset=(X=21.000000,Y=75.000000,Z=-21.000000)
+		//@100GPing100: New location. OLD: (X=21.000000,Y=75.000000,Z=-21.000000)
+        StartLocationOffset=(X=6.000000,Y=75.000000,Z=-26.000000)
         SpinsPerSecondRange=(X=(Min=0.750000,Max=1.000000))
         StartSpinRange=(X=(Max=1.000000))
         SizeScale(0)=(RelativeSize=1.000000)
@@ -52,7 +53,8 @@ DefaultProperties
         Opacity=0.500000
         CoordinateSystem=PTCS_Relative
         MaxParticles=2
-        StartLocationOffset=(X=21.000000,Y=-75.000000,Z=-21.000000)
+		// @100GPing100: New location. OLD: (X=21.000000,Y=-75.000000,Z=-21.000000)
+        StartLocationOffset=(X=6.000000,Y=-75.000000,Z=-26.000000)
         SpinsPerSecondRange=(X=(Min=0.750000,Max=1.000000))
         StartSpinRange=(X=(Max=1.000000))
         SizeScale(0)=(RelativeSize=1.000000)

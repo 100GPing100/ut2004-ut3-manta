@@ -7,11 +7,17 @@
 class Mut_UT3Manta extends Mutator
 	config(UT3Manta);
 
+/* Name displayed for the setting. */
 var localized string GUIDisplayText;
+/* Description of the setting. */
 var localized string GUIDescText;
 
+/* Holds the value of the setting. */
 var() config bool bAllowTransport;
 
+//
+// Replaces the old manta with the new one.
+//
 function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
 {
 	if (SVehicleFactory(Other) != None && SVehicleFactory(Other).VehicleClass == Class'ONSHoverBike')
@@ -20,14 +26,9 @@ function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
 	return Super.CheckReplacement(Other, bSuperRelevant);
 }
 
-/*static event string GetDisplayText(string PropName)
-{
-	if (PropName == "bAllowTransport")
-		return default.GUIDisplayText;
-	
-	return Super.GetDisplayText(PropName);
-}*/
-
+//
+// Returns the description of PropName.
+//
 static event string GetDescriptionText(string PropName)
 {
 	if (PropName == "bAllowTransport")
@@ -36,6 +37,9 @@ static event string GetDescriptionText(string PropName)
 	return Super.GetDescriptionText(PropName);
 }
 
+//
+// Creates the configurable variables.
+//
 static function FillPlayInfo(PlayInfo PlayInfo)
 {
 	Super.FillPlayInfo(PlayInfo);
@@ -43,6 +47,9 @@ static function FillPlayInfo(PlayInfo PlayInfo)
 	PlayInfo.AddSetting(default.RulesGroup, "bAllowTransport", default.GUIDisplayText, 0, 0, "Check");
 }
 
+//
+// Apply the settings.
+//
 event PreBeginPlay()
 {
 	class'UT3Manta'.default.bCanBeBaseForPawns = bAllowTransport;
